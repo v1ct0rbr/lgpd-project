@@ -19,6 +19,7 @@
 				tem conhecimento e aceitas as nossas políticas de privacidade e da forma como processamos os seus dados.
 			</li>
 			<br />
+			<% if (termsOfUse.hasUserAccounts) { %>
 			<li>
 				A SUA CONTA<br />
 				Quando usa o nosso website, você fica responsável por assegurar a confidencialidade da sua conta, senha
@@ -28,6 +29,7 @@
 				conta.
 			</li>
 			<br />
+			<% } %>
 			<li>
 				SERVIÇOS<br />
 				O website permite que você use os serviços disponíveis no website. Não poderá utilizar esses serviços
@@ -98,12 +100,14 @@
 				de quaisquer defesas disponíveis.
 			</li>
 			<br />
+			<% if (termsOfUse.hasUserAccounts) { %>
 			<li>
 				CANCELAMENTO E RESTRIÇÃO DE ACESSO<br />
 				A Empresa pode cancelar ou bloquear o seu acesso ou conta no website e os seus respectivos serviços, a
 				qualquer altura, sem aviso, no caso de você violar os Termos e condições.
 			</li>
 			<br />
+			<% } %>
 			<li>
 				DIVERSOS<br />
 				A lei que rege os Termos deve ser as leis substantivas do país onde a Empresa está estabelecida, exceto
@@ -150,15 +154,6 @@
 				<a href="mailto:<%= company.email %>" hyperspeed-configured="false"><%= company.email %></a>.
 			</li>
 		</ol>
-		<p></p>
-		<form action="" method="post">
-			<input type="hidden" value="1" name="rgpdnlgtandc" />
-			<label class="containerr">
-				Aceito os termos e condições definidos nos Termos e Condições. <input type="checkbox" required="" />
-				<span class="checkmark"></span>
-			</label>
-			<input type="submit" value="Aceite isso" name="rgpdaccept" class="rgpdacceptbutton" />
-		</form>
 		<p></p>
 	</article>
 </main>

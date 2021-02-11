@@ -1,5 +1,5 @@
 //const localStorage = require('node-localstorage');
-const { company } = require('../config/parameters');
+const { company, termsOfUse } = require('../config/parameters');
 
 exports.getIndex = (req, res, next) => {
 	res.render('index', {
@@ -17,6 +17,6 @@ exports.getPrivacyPolicy = (req, res, next) => {
 exports.getTermOfUse = (req, res, next) => {
 	res.render('terms-of-use', {
 		pageTitle: 'Termos de Uso',
-		company,
+		company, termsOfUse
 	});
 };
