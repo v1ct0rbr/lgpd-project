@@ -9,6 +9,7 @@ const initialState = (val = 'disabled') => {
 
 const init = (func) => {
 	if (!localStorage.acceptedLocalData) {
+		
 		localStorage.setItem('acceptedLocalData', JSON.stringify({ ...initialState }));
 		func({ ...initialState });
 	} else {
@@ -49,6 +50,7 @@ const addEventListenerToList = (event, list, func) => {
 };
 
 const enableDisableAll = (value) => {
+	//localstorage aceita apenas string. Basta transformar o objeto
 	localStorage.setItem('acceptedLocalData', JSON.stringify(initialState(value)));
 	localStorage.setItem('termsAccepted', value);
 
