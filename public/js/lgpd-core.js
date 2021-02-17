@@ -1,4 +1,4 @@
-const initialState = (val = 'disabled') => {
+const initialState = (val = 'accepted') => {
 	return {
 		functionality: val,
 		performance: val,
@@ -9,8 +9,9 @@ const initialState = (val = 'disabled') => {
 
 const init = (func) => {
 	if (!localStorage.acceptedLocalData) {
-		
-		localStorage.setItem('acceptedLocalData', JSON.stringify({ ...initialState }));
+		//localstorage aceita apenas string. Basta transformar o objeto
+		localStorage.setItem('acceptedLocalData', JSON.stringify(initialState()));
+		console.log(localStorage);
 		func({ ...initialState });
 	} else {
 		func(JSON.parse(localStorage.acceptedLocalData));
@@ -50,12 +51,13 @@ const addEventListenerToList = (event, list, func) => {
 };
 
 const enableDisableAll = (value) => {
-	//localstorage aceita apenas string. Basta transformar o objeto
 	localStorage.setItem('acceptedLocalData', JSON.stringify(initialState(value)));
 	localStorage.setItem('termsAccepted', value);
 
 	const element = document.querySelector('.box-cookies');
 	if (!element.classList.contains('hide')) element.classList.add('hide');
+
+	window.location.reload();
 };
 
 const checkUncheckAll = (checks, value) => {
@@ -65,4 +67,5 @@ const checkUncheckAll = (checks, value) => {
 	Object.keys(JSON.parse(localStorage.acceptedLocalData)).map((key, idx) => {
 		changeLocalDataValue(value, key);
 	});
+	window.location.reload();
 };

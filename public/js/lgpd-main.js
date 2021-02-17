@@ -39,6 +39,8 @@
 		localStorage.setItem('termsAccepted', countAccepted > 0 ? 'accepted' : 'disabled');
 		document.querySelector('.box-cookies').classList.add('hide');
 		document.getElementById('dismissModal').click();
+
+		window.location.reload();
 	});
 
 	document.querySelector('#checkAll').addEventListener('click', function () {
